@@ -1,0 +1,209 @@
+/* GENERAL */
+body {
+    color: white;
+    background-color: black;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* TITOL PRINCIPAL */
+.Titol {
+    color: rgb(0, 255, 0);
+    font-size: 60px;
+    text-align: center;
+    margin-top: 40px;
+    text-shadow: 2px 2px 5px rgba(0, 255, 0, 0.5); /* OMBRE */
+}
+
+/* MENÚ */
+nav {
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Icono del menú hamburguesa */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+}
+
+/* Estilos para la lista de menú */
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu li a:hover {
+    background-color: #00ff22;
+    color: black;
+}
+
+/* Header y contenedor de imagen */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px; /* Se añade un margen mayor para ajustar con el menú */
+}
+
+.foto-cv {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid rgb(0, 255, 0);
+}
+
+/* Secciones del Currículum */
+.section_Currículum {
+    background-color: #3d3d3d;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.titol_Currículum {
+    color: #04ff00;
+}
+
+.section h2 {
+    color: rgb(0, 255, 0);
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.section p, .section ul {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.contact-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.contact-table th {
+    font-size: 18px;
+    color: rgb(0, 255, 0);
+    padding-bottom: 15px;
+}
+
+.contact-table td {
+    font-size: 16px;
+    color: white;
+    padding: 10px 0;
+}
+
+/* ENLLAÇ EMPRESA */
+.enllaç {
+    color: #00ff22; /* Color verde */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.enllaç:hover { /* Subratllat en passar el ratolí */
+    text-decoration: underline; 
+}
+
+/* Media query per a pantalles petites */
+@media (max-width: 768px) {
+    /* Fes el formulari més estret en pantalles petites */
+    .formulari-container {
+        width: 90%;
+    }
+
+    /* Ajustos del menú per a pantalles petites */
+    .menu {
+        display: none; /* Ocultem el menú per defecte */
+        flex-direction: column;
+        text-align: left;
+        background-color: #444444;
+        width: 100%;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
+
+    .menu li {
+        display: block;
+        width: 100%;
+    }
+
+    .menu li a {
+        padding: 10px 20px;
+        display: block;
+        font-size: 18px;
+    }
+
+    /* Mostra el menú quan està desplegat */
+    .menu.menu-visible {
+        display: flex;
+    }
+
+    /* Icona del menú per a pantalles petites */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Ajustes para el header */
+    .header-container {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .foto-cv {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .section_Currículum {
+        width: 90%;
+    }
+
+    /* Tabla de contacto responsiva */
+    .contact-table th, .contact-table td {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .contact-table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+}
