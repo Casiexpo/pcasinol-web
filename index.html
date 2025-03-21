@@ -1,82 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="CURRICULUM.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Afegeix això per a dispositius mòbils -->
-    <meta charset="utf-8">
-    <title>POL CASIÑOL</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pol Casiñol Exposito</title>
+    <style>
+        /* ... (mantén todo el CSS anterior) ... */
+
+        /* Nuevos efectos añadidos */
+        
+        /* Efecto de neón en los bordes */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 30px #0f03;
+            pointer-events: none;
+            z-index: 4;
+            animation: neon-flicker 2s infinite;
+        }
+
+        /* Efecto de líneas de escaneo */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                transparent 2px,
+                rgba(0, 255, 0, 0.05) 3px,
+                rgba(0, 255, 0, 0.05) 4px
+            );
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Efecto de grid digital */
+        .digital-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Animación de texto brillante */
+        h1 {
+            animation: text-glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes text-glow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.3); }
+        }
+
+        /* Efecto hover para el contenedor del video */
+        .video-container {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 50px rgba(0, 255, 0, 0.5);
+        }
+
+        /* Efecto de terminal parpadeante */
+        .terminal-effect {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: #0f0;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            animation: terminal-blink 1s infinite;
+        }
+
+        @keyframes terminal-blink {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.2; }
+        }
+
+        @keyframes neon-flicker {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.3; }
+        }
+    </style>
 </head>
 <body>
-        <h1 class="Titol">POL CASIÑOL</h1>
+    <div class="container">
+        <h1>POL CASIÑOL EXPOSITO</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/Iqes7ILJbiY" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="video-text">Video de Pol</p>
+        <div class="terminal-effect">▲ SYSTEM STATUS: ONLINE</div>
     </div>
-
-    <section class="section_Currículum">
-        <h2 class="titol_Currículum">Dades de Contacte</h2>
-        <table class="contact-table">
-            <tr>
-                <th>Nom:</th>
-                <td>Pol Casiñol Expósito</td>
-            </tr>
-            <tr>
-                <th>Data de naixement:</th>
-                <td>30 / 10 / 2007</td>
-            </tr>
-            <tr>
-                <th>Telèfon:</th>
-                <td>689 00 90 31</td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td><a href="mailto:casiexpo10@gmail.com" class="enllaç" aria-label="Enviar correo a Pol Casiñol">casiexpo10@gmail.com</a></td>
-            </tr>
-            <tr>
-                <th>Adreça:</th>
-                <td><a class="enllaç" href="https://www.google.es/maps/place/Carrer+Barcelona,+13,+17469+El+Pont+del+Pr%C3%ADncep,+Girona/@42.2275687,2.964951,17z/data=!3m1!4b1!4m6!3m5!1s0x12ba8d0ffffd5ce5:0x55cd7e5bf45a617c!8m2!3d42.2275648!4d2.9675259!16s%2Fg%2F11c4cw5tj0?entry=ttu&g_ep=EgoyMDI0MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Ver dirección en Google Maps">C/ Barcelona nº13, Vilamalla (17469), Girona</a></td>
-            </tr>
-        </table>
-    </section>
-
-    <section class="section_Currículum">
-        <h2 class="titol_Currículum">Sobre Mi</h2>
-        <p class="text_Currículum">Sóc un estudiant d'informàtica interessat en les xarxes i la domòtica. Vaig néixer a Vilamalla, visc amb la meva família i el meu gos. M'agrada passar temps a l'aire lliure, sortir amb amics i gaudir d'activitats com anar a la platja.</p>
-    </section>
-
-    <section class="section_Currículum">
-        <h2 class="titol_Currículum">Estudis</h2>
-        <ul class="text_Currículum">
-            <li>CFGM en Sistemes Microinformàtics i Xarxes (2023 - En curs), Institut Cendrassos, Figueres</li>
-            <li>ESO ( 2019 - 2023), Institut Narcís Monturiol, Figueres</li>
-        </ul>
-    </section>
-
-    <section class="section_Currículum">
-        <h2 class="titol_Currículum">Idiomes</h2>
-        <ul class="text_Currículum">
-            <li>Català: Natiu</li>
-            <li>Castellà: Natiu</li>
-            <li>Anglès: Avançat</li>
-        </ul>
-    </section>
-
-    <section class="section_Currículum">
-        <h2 class="titol_Currículum">Experiència Laboral</h2>
-        <p class="text_Currículum">He treballat durant un mes i mig a l'empresa de telecomunicacions <a class="enllaç" href="https://tecnicsemporda.com/" target="_blank" rel="noopener noreferrer" aria-label="Visitar Tècnics Empordà">Tècnics Empordà</a>, on vaig adquirir experiència en la configuració de xarxes i sistemes de telecomunicacions.</p>
-    </section>
-
-    <section class="section_Currículum">
-        <h2 class="titol_Currículum">Aficions</h2>
-        <ul class="text_Currículum">
-            <li>Ciclisme</li>
-            <li>Pàdel</li>
-            <li>Filmació aèria</li>
-        </ul>
-    </section>
-
-    <script>
-        function toggleMenu() {
-            var menu = document.querySelector('.menu');
-            menu.classList.toggle('menu-visible');
-        }
-    </script>
+    
+    <div class="flames-effect"></div>
+    <div class="flames-particles"></div>
+    <div class="scanlines"></div>
+    <div class="digital-grid"></div>
 </body>
 </html>
