@@ -1,209 +1,116 @@
-/* GENERAL */
-body {
-    color: white;
-    background-color: black;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pol Casiñol Exposito</title>
+    <style>
+        /* ... (mantén todo el CSS anterior) ... */
 
-/* TITOL PRINCIPAL */
-.Titol {
-    color: rgb(0, 255, 0);
-    font-size: 60px;
-    text-align: center;
-    margin-top: 40px;
-    text-shadow: 2px 2px 5px rgba(0, 255, 0, 0.5); /* OMBRE */
-}
+        /* Nuevos efectos añadidos */
+        
+        /* Efecto de neón en los bordes */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 30px #0f03;
+            pointer-events: none;
+            z-index: 4;
+            animation: neon-flicker 2s infinite;
+        }
 
-/* MENÚ */
-nav {
-    background-color: transparent;
-    backdrop-filter: blur(5px);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
+        /* Efecto de líneas de escaneo */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                transparent 2px,
+                rgba(0, 255, 0, 0.05) 3px,
+                rgba(0, 255, 0, 0.05) 4px
+            );
+            z-index: 5;
+            pointer-events: none;
+        }
 
-/* Icono del menú hamburguesa */
-.menu-icon {
-    display: none;
-    font-size: 30px;
-    color: white;
-    padding: 14px 20px;
-    cursor: pointer;
-}
+        /* Efecto de grid digital */
+        .digital-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+            pointer-events: none;
+        }
 
-/* Estilos para la lista de menú */
-.menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    text-align: center;
-}
+        /* Animación de texto brillante */
+        h1 {
+            animation: text-glow 1.5s ease-in-out infinite alternate;
+        }
 
-.menu li {
-    display: inline-block;
-}
+        @keyframes text-glow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.3); }
+        }
 
-.menu li a {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-    font-size: 20px;
-    transition: background-color 0.3s, color 0.3s;
-}
+        /* Efecto hover para el contenedor del video */
+        .video-container {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.menu li a:hover {
-    background-color: #00ff22;
-    color: black;
-}
+        .video-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 50px rgba(0, 255, 0, 0.5);
+        }
 
-/* Header y contenedor de imagen */
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 80px; /* Se añade un margen mayor para ajustar con el menú */
-}
+        /* Efecto de terminal parpadeante */
+        .terminal-effect {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: #0f0;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            animation: terminal-blink 1s infinite;
+        }
 
-.foto-cv {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-right: 20px;
-    border: 3px solid rgb(0, 255, 0);
-}
+        @keyframes terminal-blink {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.2; }
+        }
 
-/* Secciones del Currículum */
-.section_Currículum {
-    background-color: #3d3d3d;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 10px;
-    width: 80%;
-}
-
-.titol_Currículum {
-    color: #04ff00;
-}
-
-.section h2 {
-    color: rgb(0, 255, 0);
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-.section p, .section ul {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-.section ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-.contact-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    text-align: left;
-}
-
-.contact-table th {
-    font-size: 18px;
-    color: rgb(0, 255, 0);
-    padding-bottom: 15px;
-}
-
-.contact-table td {
-    font-size: 16px;
-    color: white;
-    padding: 10px 0;
-}
-
-/* ENLLAÇ EMPRESA */
-.enllaç {
-    color: #00ff22; /* Color verde */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.enllaç:hover { /* Subratllat en passar el ratolí */
-    text-decoration: underline; 
-}
-
-/* Media query per a pantalles petites */
-@media (max-width: 768px) {
-    /* Fes el formulari més estret en pantalles petites */
-    .formulari-container {
-        width: 90%;
-    }
-
-    /* Ajustos del menú per a pantalles petites */
-    .menu {
-        display: none; /* Ocultem el menú per defecte */
-        flex-direction: column;
-        text-align: left;
-        background-color: #444444;
-        width: 100%;
-        position: absolute;
-        top: 50px;
-        left: 0;
-    }
-
-    .menu li {
-        display: block;
-        width: 100%;
-    }
-
-    .menu li a {
-        padding: 10px 20px;
-        display: block;
-        font-size: 18px;
-    }
-
-    /* Mostra el menú quan està desplegat */
-    .menu.menu-visible {
-        display: flex;
-    }
-
-    /* Icona del menú per a pantalles petites */
-    .menu-icon {
-        display: block;
-    }
-
-    /* Ajustes para el header */
-    .header-container {
-        flex-direction: column;
-        margin-top: 20px;
-    }
-
-    .foto-cv {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .section_Currículum {
-        width: 90%;
-    }
-
-    /* Tabla de contacto responsiva */
-    .contact-table th, .contact-table td {
-        display: block;
-        width: 100%;
-        text-align: left;
-        margin-bottom: 10px;
-    }
-
-    .contact-table tr {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
-    }
-}
+        @keyframes neon-flicker {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>POL CASIÑOL EXPOSITO</h1>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/Iqes7ILJbiY" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="video-text">Video de Pol</p>
+        <div class="terminal-effect">▲ SYSTEM STATUS: ONLINE</div>
+    </div>
+    
+    <div class="flames-effect"></div>
+    <div class="flames-particles"></div>
+    <div class="scanlines"></div>
+    <div class="digital-grid"></div>
+</body>
+</html>
