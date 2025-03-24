@@ -1,179 +1,100 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pol Casiñol Exposito</title>
+    <title>POL CASIÑOL EXPOSITO</title>
     <style>
-        /* ESTILOS CSS */
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-        
-        /* Reset básico */
-        * {
+        body {
+            background-color: black;
+            color: rgb(0, 255, 0);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Estilos generales */
-        body {
-            background: #000;
-            color: #0f0;
-            font-family: 'Orbitron', sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             position: relative;
         }
-
-        /* Contenedor principal */
-        .container {
-            position: relative;
-            z-index: 5;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        /* Efecto de llamas */
-        .flames {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 60vh;
-            background: linear-gradient(0deg, 
-                rgba(0, 255, 0, 0.8) 0%, 
-                rgba(0, 255, 0, 0.4) 30%, 
-                transparent 100%
-            );
-            mask-image: 
-                linear-gradient(to top, rgba(0,0,0,1) 20%, transparent 100%),
-                repeating-linear-gradient(
-                    -45deg,
-                    transparent 0px,
-                    transparent 30px,
-                    rgba(0,0,0,1) 31px,
-                    rgba(0,0,0,1) 60px
-                );
-            animation: flames-animation 3s ease-in-out infinite;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        @keyframes flames-animation {
-            0%, 100% { transform: translateX(-2%) skewX(-2deg); }
-            50% { transform: translateX(2%) skewX(2deg); }
-        }
-
-        /* Título principal */
         h1 {
-            font-size: 3.5rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            text-shadow: 0 0 25px #0f0;
-            background: linear-gradient(90deg, #0f0, #0c0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: title-glow 1.5s ease-in-out infinite alternate;
+            font-size: 3em;
+            text-shadow: 0 0 10px rgb(0, 255, 0);
+            position: relative;
+            z-index: 2;
+            margin-bottom: 20px;
         }
-
-        @keyframes title-glow {
-            from { opacity: 0.9; filter: brightness(1); }
-            to { opacity: 1; filter: brightness(1.3); }
-        }
-
-        /* Contenedor del video */
         .video-container {
             position: relative;
+            z-index: 2;
             width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
-            border: 2px solid #0f0;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 0 40px rgba(0, 255, 0, 0.3);
-            transition: transform 0.3s ease;
-            background: rgba(0, 0, 0, 0.7);
+            max-width: 900px;
         }
-
-        .video-container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 60px rgba(0, 255, 0, 0.6);
-        }
-
-        /* Iframe del video */
         iframe {
             width: 100%;
-            height: 500px;
-            border: none;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            border: 5px solid rgb(0, 255, 0);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgb(0, 255, 0);
         }
-
-        /* Texto del video */
-        .video-text {
-            font-size: 1.2rem;
-            margin-top: 1.5rem;
-            text-shadow: 0 0 15px #0f0;
-        }
-
-        /* Efecto de partículas */
-        .particles {
-            position: fixed;
+        canvas {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .particles::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, #0f0 0%, transparent 70%);
-            opacity: 0.1;
-            animation: particles 3s linear infinite;
-        }
-
-        @keyframes particles {
-            0% { transform: scale(1); opacity: 0.1; }
-            100% { transform: scale(3); opacity: 0; }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            iframe { height: 300px; }
-            .flames { height: 50%; }
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            iframe { height: 200px; }
-            .video-text { font-size: 1rem; }
+            z-index: 1;
         }
     </style>
 </head>
 <body>
-    <!-- Contenido HTML -->
-    <div class="container">
-        <h1>POL CASIÑOL EXPOSITO</h1>
-        <div class="video-container">
-            <iframe src="https://youtu.be/jZL5vLo1Ifg" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-            </iframe>
-        </div>
-        <p class="video-text">Video de Pol</p>
+    <canvas id="matrixCanvas"></canvas>
+    <h1>POL CASIÑOL EXPOSITO</h1>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/jZL5vLo1Ifg" frameborder="0" allowfullscreen></iframe>
     </div>
+    <script>
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
 
-    <!-- Efectos visuales -->
-    <div class="flames"></div>
-    <div class="particles"></div>
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        const matrix = letters.split('');
+        const fontSize = 16;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(0);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = 'rgb(0, 255, 0)';
+            ctx.font = `${fontSize}px monospace`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = matrix[Math.floor(Math.random() * matrix.length)];
+                const x = i * fontSize;
+                const y = drops[i] * fontSize;
+                ctx.fillText(text, x, y);
+                
+                if (y > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 50);
+
+        window.addEventListener('resize', resizeCanvas);
+    </script>
 </body>
 </html>
