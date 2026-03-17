@@ -11,7 +11,7 @@
       padding: 0;
       font-family: 'Orbitron', sans-serif;
       background-color: black;
-      color: rgb(0, 255, 0);
+      color: rgb(255, 0, 0);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -23,7 +23,15 @@
 
     h1 {
       font-size: 3em;
-      text-shadow: 0 0 15px rgb(0, 255, 0);
+      text-shadow: 0 0 15px rgb(255, 0, 0);
+      z-index: 2;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: rgb(255, 0, 0);
+      text-shadow: 0 0 10px rgb(255, 0, 0);
       z-index: 2;
       margin-bottom: 30px;
     }
@@ -38,9 +46,9 @@
     iframe {
       width: 100%;
       aspect-ratio: 16 / 9;
-      border: 4px solid rgb(0, 255, 0);
+      border: 4px solid rgb(255, 0, 0);
       border-radius: 12px;
-      box-shadow: 0 0 20px rgb(0, 255, 0);
+      box-shadow: 0 0 20px rgb(255, 0, 0);
       transition: transform 0.3s ease;
     }
 
@@ -60,7 +68,10 @@
 </head>
 <body>
   <canvas id="matrixCanvas"></canvas>
+
   <h1>POL CASIÑOL EXPOSITO</h1>
+  <h2 id="contador"></h2>
+
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/jZL5vLo1Ifg" allowfullscreen></iframe>
   </div>
@@ -85,7 +96,7 @@
       ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = 'rgb(0, 255, 0)';
+      ctx.fillStyle = 'rgb(255, 0, 0)';
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -103,6 +114,30 @@
 
     setInterval(drawMatrix, 50);
     window.addEventListener('resize', resizeCanvas);
+
+    // CONTADOR
+    const contador = document.getElementById('contador');
+    const fechaFinal = new Date('2026-03-17T23:59:00');
+
+    function actualizarContador() {
+      const ahora = new Date();
+      const diferencia = fechaFinal - ahora;
+
+      if (diferencia <= 0) {
+        contador.innerHTML = "⛔ DOMINIO EXPIRADO";
+        return;
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+      const segundos = Math.floor((diferencia / 1000) % 60);
+
+      contador.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
   </script>
 </body>
 </html>
