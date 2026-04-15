@@ -1,143 +1,375 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>POL CASIÑOL EXPOSITO</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Orbitron', sans-serif;
-      background-color: black;
-      color: rgb(255, 0, 0);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-
-    h1 {
-      font-size: 3em;
-      text-shadow: 0 0 15px rgb(255, 0, 0);
-      z-index: 2;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: 2em;
-      color: rgb(255, 0, 0);
-      text-shadow: 0 0 10px rgb(255, 0, 0);
-      z-index: 2;
-      margin-bottom: 30px;
-    }
-
-    .video-container {
-      position: relative;
-      z-index: 2;
-      width: 90%;
-      max-width: 800px;
-    }
-
-    iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: 4px solid rgb(255, 0, 0);
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgb(255, 0, 0);
-      transition: transform 0.3s ease;
-    }
-
-    iframe:hover {
-      transform: scale(1.02);
-    }
-
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-  </style>
+  <title>Pol Casiñol Expósito — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <canvas id="matrixCanvas"></canvas>
 
-  <h1>POL CASIÑOL EXPOSITO</h1>
-  <h2 id="contador"></h2>
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo">PCE<span class="dot">.</span></span>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre mí</a></li>
+        <li><a href="#conocimientos">Skills</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#sobre">Sobre mí</a>
+      <a href="#conocimientos">Skills</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
 
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/jZL5vLo1Ifg" allowfullscreen></iframe>
-  </div>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow glow-blue"></div>
+      <div class="hero-glow glow-purple"></div>
+    </div>
+    <div class="hero-content reveal">
+      <p class="hero-pre">Hola, soy</p>
+      <h1 class="hero-name">Pol Casiñol<br /><span>Expósito</span></h1>
+      <p class="hero-sub">Estudiante de informática especializado en<br />sistemas, redes y desarrollo web</p>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn-primary">Ver proyectos <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contacto" class="btn-ghost">Contactar</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-  <script>
-    const canvas = document.getElementById('matrixCanvas');
-    const ctx = canvas.getContext('2d');
+  <!-- SOBRE MÍ -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <div class="section-label reveal">Sobre mí</div>
+      <div class="sobre-grid">
+        <div class="sobre-text reveal">
+          <h2>Técnico IT.<br />Siempre aprendiendo.</h2>
+          <p>Estudiante de informática con especial interés en redes, sistemas y domótica. Persona responsable, con ganas de aprender y con experiencia real en entornos IT.</p>
+          <p>Busco una oportunidad laboral para este verano donde seguir creciendo profesionalmente.</p>
+          <div class="sobre-stats">
+            <div class="stat">
+              <span class="stat-num">3+</span>
+              <span class="stat-label">Empresas IT</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">2</span>
+              <span class="stat-label">Proyectos web</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">5</span>
+              <span class="stat-label">Áreas técnicas</span>
+            </div>
+          </div>
+        </div>
+        <div class="sobre-card reveal">
+          <div class="sobre-avatar">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <div class="sobre-chips">
+            <span class="chip chip-blue"><i class="fa-solid fa-graduation-cap"></i> DAW — Actualidad</span>
+            <span class="chip chip-purple"><i class="fa-solid fa-briefcase"></i> Tier 1 Technology</span>
+            <span class="chip chip-neutral"><i class="fa-solid fa-map-marker-alt"></i> Cataluña, España</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
+  <!-- CONOCIMIENTOS -->
+  <section id="conocimientos" class="section section-alt">
+    <div class="container">
+      <div class="section-label reveal">Skills</div>
+      <h2 class="section-title reveal">Conocimientos técnicos</h2>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-file-word"></i></div>
+          <h3>Ofimática</h3>
+          <p>Suite Office, Google Workspace y herramientas de productividad avanzadas.</p>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3>Hardware</h3>
+          <p>Montaje, diagnóstico y mantenimiento de equipos informáticos y periféricos.</p>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-brands fa-linux"></i></div>
+          <h3>Sistemas operativos</h3>
+          <p>Administración y configuración en entornos Windows y Linux.</p>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>Redes informáticas</h3>
+          <p>Configuración de redes, soporte en infraestructura y resolución de incidencias.</p>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Seguridad informática</h3>
+          <p>Fundamentos de ciberseguridad, buenas prácticas y protección de sistemas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890*#¿?&!¡';
-    const matrix = letters.split('');
-    const fontSize = 16;
-    const columns = Math.floor(canvas.width / fontSize);
-    const drops = Array(columns).fill(0);
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="section">
+    <div class="container">
+      <div class="section-label reveal">Proyectos</div>
+      <h2 class="section-title reveal">Trabajo real. Código real.</h2>
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="project-num">01</div>
+          <div class="project-tag"><i class="fa-solid fa-taxi"></i> Cliente real</div>
+          <h3>Taxi Non Stop<br />Vilamalla</h3>
+          <p>Desarrollo de una web real para un servicio de taxi. Diseño, estructura y despliegue completo para un cliente activo.</p>
+          <div class="project-techs">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <a href="https://casiexpo.github.io/TAXI_NON_STOP/" target="_blank" class="project-btn">Ver proyecto <i class="fa-solid fa-external-link"></i></a>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-num">02</div>
+          <div class="project-tag"><i class="fa-solid fa-hammer"></i> Proyecto personal</div>
+          <h3>Web Empresa<br />de Herrería</h3>
+          <p>Proyecto personal simulando el sitio web corporativo de una empresa de herreros. Diseño profesional y navegación fluida.</p>
+          <div class="project-techs">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <a href="https://casiexpo.github.io/ACERS/" target="_blank" class="project-btn">Ver proyecto <i class="fa-solid fa-external-link"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    function drawMatrix() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+  <!-- TIMELINE -->
+  <section id="timeline" class="section section-alt">
+    <div class="container">
+      <div class="section-label reveal">Trayectoria</div>
+      <h2 class="section-title reveal">Estudiando y trabajando<br />a la vez.</h2>
+      <div class="timeline-legend reveal">
+        <span class="legend-item legend-blue"><span class="legend-dot"></span> Estudios</span>
+        <span class="legend-item legend-purple"><span class="legend-dot"></span> Experiencia</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-line"></div>
 
-      ctx.fillStyle = 'rgb(255, 0, 0)';
-      ctx.font = `${fontSize}px monospace`;
+        <!-- ESTUDIOS izquierda -->
+        <div class="tl-item tl-left reveal">
+          <div class="tl-card tl-blue">
+            <div class="tl-badge">2025 — Actualidad</div>
+            <h4><i class="fa-solid fa-graduation-cap"></i> CFGM Desarrollo de<br/>Aplicaciones Web</h4>
+            <p>Formación en programación web, bases de datos y entornos de desarrollo.</p>
+          </div>
+          <div class="tl-dot tl-dot-blue"></div>
+        </div>
 
-      for (let i = 0; i < drops.length; i++) {
-        const text = matrix[Math.floor(Math.random() * matrix.length)];
-        const x = i * fontSize;
-        const y = drops[i] * fontSize;
-        ctx.fillText(text, x, y);
+        <!-- EXPERIENCIA derecha -->
+        <div class="tl-item tl-right reveal">
+          <div class="tl-dot tl-dot-purple"></div>
+          <div class="tl-card tl-purple">
+            <div class="tl-badge">27/05/2025 — 31/10/2025</div>
+            <h4><i class="fa-solid fa-building"></i> Tier 1 Technology S.A.</h4>
+            <p class="tl-role">IT Technician</p>
+            <ul>
+              <li>Soporte técnico a usuarios</li>
+              <li>Resolución de incidencias</li>
+              <li>Mantenimiento de equipos</li>
+            </ul>
+          </div>
+        </div>
 
-        if (y > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
+        <!-- ESTUDIOS izquierda -->
+        <div class="tl-item tl-left reveal">
+          <div class="tl-card tl-blue">
+            <div class="tl-badge">2023 — 2025</div>
+            <h4><i class="fa-solid fa-graduation-cap"></i> CFGM Sistemas<br/>Microinformáticos y Redes</h4>
+            <p>Administración de sistemas, redes locales y soporte técnico.</p>
+          </div>
+          <div class="tl-dot tl-dot-blue"></div>
+        </div>
 
-    setInterval(drawMatrix, 50);
-    window.addEventListener('resize', resizeCanvas);
+        <!-- EXPERIENCIA derecha -->
+        <div class="tl-item tl-right reveal">
+          <div class="tl-dot tl-dot-purple"></div>
+          <div class="tl-card tl-purple">
+            <div class="tl-badge">02/01/2025 — 23/05/2025</div>
+            <h4><i class="fa-solid fa-building"></i> Transgourmet</h4>
+            <p class="tl-role">IT Support</p>
+            <ul>
+              <li>Instalación y configuración de equipos</li>
+              <li>Soporte en redes internas</li>
+              <li>Gestión de incidencias</li>
+            </ul>
+          </div>
+        </div>
 
-    // CONTADOR
-    const contador = document.getElementById('contador');
-    const fechaFinal = new Date('2026-03-17T23:59:00');
+        <!-- EXPERIENCIA derecha -->
+        <div class="tl-item tl-right reveal">
+          <div class="tl-dot tl-dot-purple"></div>
+          <div class="tl-card tl-purple">
+            <div class="tl-badge">19/07/2024 — 31/08/2024</div>
+            <h4><i class="fa-solid fa-tools"></i> Tecnics Empordà S.L.</h4>
+            <p class="tl-role">Técnico instalador</p>
+            <ul>
+              <li>Instalación de sistemas</li>
+              <li>Trabajo con clientes</li>
+            </ul>
+          </div>
+        </div>
 
-    function actualizarContador() {
-      const ahora = new Date();
-      const diferencia = fechaFinal - ahora;
+        <!-- ESTUDIOS izquierda -->
+        <div class="tl-item tl-left reveal">
+          <div class="tl-card tl-blue">
+            <div class="tl-badge">2019 — 2023</div>
+            <h4><i class="fa-solid fa-school"></i> ESO</h4>
+            <p>Educación Secundaria Obligatoria.</p>
+          </div>
+          <div class="tl-dot tl-dot-blue"></div>
+        </div>
 
-      if (diferencia <= 0) {
-        contador.innerHTML = "⛔ DOMINIO EXPIRADO";
-        return;
-      }
+      </div>
+    </div>
+  </section>
 
-      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
-      const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
-      const segundos = Math.floor((diferencia / 1000) % 60);
+  <!-- IDIOMAS + CARNETS -->
+  <section id="idiomas" class="section">
+    <div class="container">
+      <div class="extras-grid">
 
-      contador.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
-    }
+        <!-- IDIOMAS -->
+        <div class="extras-block reveal">
+          <div class="section-label">Idiomas</div>
+          <h2 class="section-title-sm">Comunicación</h2>
+          <div class="lang-list">
+            <div class="lang-item">
+              <span class="lang-flag">🇪🇸</span>
+              <div class="lang-info">
+                <span class="lang-name">Castellano</span>
+                <span class="lang-level">Nativo</span>
+              </div>
+              <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+            </div>
+            <div class="lang-item">
+              <span class="lang-flag">🏴󠁥󠁳󠁣󠁴󠁿</span>
+              <div class="lang-info">
+                <span class="lang-name">Catalán</span>
+                <span class="lang-level">Nativo</span>
+              </div>
+              <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+            </div>
+            <div class="lang-item">
+              <span class="lang-flag">🇬🇧</span>
+              <div class="lang-info">
+                <span class="lang-name">Inglés</span>
+                <span class="lang-level">Avanzado</span>
+              </div>
+              <div class="lang-bar"><div class="lang-fill" style="width:78%"></div></div>
+            </div>
+          </div>
+        </div>
 
-    setInterval(actualizarContador, 1000);
-    actualizarContador();
-  </script>
+        <!-- CARNETS -->
+        <div class="extras-block reveal">
+          <div class="section-label">Movilidad</div>
+          <h2 class="section-title-sm">Carnets y vehículo</h2>
+          <div class="carnets-grid">
+            <div class="carnet-card">
+              <div class="carnet-icon"><i class="fa-solid fa-motorcycle"></i></div>
+              <div class="carnet-info">
+                <span class="carnet-type">Permiso A1</span>
+                <span class="carnet-detail">Motocicleta · Vehículo propio</span>
+              </div>
+            </div>
+            <div class="carnet-card">
+              <div class="carnet-icon"><i class="fa-solid fa-car"></i></div>
+              <div class="carnet-info">
+                <span class="carnet-type">Permiso B</span>
+                <span class="carnet-detail">Automóvil · Vehículo propio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section section-alt">
+    <div class="container">
+      <div class="section-label reveal">Contacto</div>
+      <h2 class="section-title reveal">¿Hablamos?</h2>
+      <p class="contact-sub reveal">Disponible para oportunidades laborales este verano.<br/>No dudes en escribirme por cualquier canal.</p>
+      <div class="contact-grid">
+
+        <a href="https://github.com/casiexpo" target="_blank" class="contact-card reveal">
+          <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+          <span class="contact-label">GitHub</span>
+          <span class="contact-user">casiexpo</span>
+        </a>
+
+        <a href="https://instagram.com/pol_casi" target="_blank" class="contact-card reveal">
+          <div class="contact-icon"><i class="fa-brands fa-instagram"></i></div>
+          <span class="contact-label">Instagram</span>
+          <span class="contact-user">pol_casi</span>
+        </a>
+
+        <a href="https://t.me/CasiExpo" target="_blank" class="contact-card reveal">
+          <div class="contact-icon"><i class="fa-brands fa-telegram"></i></div>
+          <span class="contact-label">Telegram</span>
+          <span class="contact-user">@CasiExpo</span>
+        </a>
+
+        <a href="https://wa.me/34689009031" target="_blank" class="contact-card reveal">
+          <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-user">689 009 031</span>
+        </a>
+
+        <a href="tel:+34689009031" class="contact-card reveal">
+          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+          <span class="contact-label">Teléfono</span>
+          <span class="contact-user">689 009 031</span>
+        </a>
+
+        <a href="mailto:casiexpo10@gmail.com" class="contact-card reveal">
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <span class="contact-label">Email</span>
+          <span class="contact-user">casiexpo10@gmail.com</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span class="nav-logo">PCE<span class="dot">.</span></span>
+      <p>© 2025 Pol Casiñol Expósito. Hecho con <i class="fa-solid fa-heart"></i></p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
